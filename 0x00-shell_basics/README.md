@@ -15,3 +15,8 @@
 **12-file_type** prints the file type of a certain file.<br>
 **13-symboli_links** creates a symbolic link in the current working directory.<br>
 **14-cpy_html** copy html files from one directory to the other without overwriting files that already exist.<br>
+**100-lets_move** move all files beginnin with upper case letters from working directory to a specific directory.<br>
+**101-clean_emacs** delete all files in the working directory that end with a ~.<br>
+**102-tree** creates multiple directories in one line.<br>
+**103-commas** lists all the files and directories of the current directory, separated by commas.<br>
+**school.mgc** elaborates on the use of *type* command.
