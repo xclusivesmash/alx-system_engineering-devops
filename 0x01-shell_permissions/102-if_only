@@ -1,0 +1,2 @@
+#!/bin/bash
+find ./ -type f -name hello -user guillaume -exec sudo chown betty hello
