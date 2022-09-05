@@ -8,4 +8,5 @@
 6. **5-firstlines** displays the first 10 lines of "/etc/passwd".<br>
 7. **6-third_line** displays the third line of the file "iacta".<br>
 8. **7-file** creates a filename with special characters.<br>
+9. **8-cwd_state** writes into the file "ls_cwd_content" the results of the command "ls -al".<br>
 
