@@ -5,3 +5,5 @@
 3. **2-hellofile** displays the contents of "/etc/passwd".<br>
 4. **3-twofiles** display the content of "/ect/passwd" and "/etc/hosts".<br>
 5. **4-lastlines** displays the last 10 lines "/etc/passwd".<br>
+6. **5-firstlines** displays the first 10 lines of "/etc/passwd".<br>
+
