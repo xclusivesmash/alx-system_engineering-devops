@@ -13,4 +13,5 @@
 11. **10-no_more_js** deletes all the files with the ".js" extension that are present in the current directory and all it's subfolder.<br>
 12. **11-directories** count the number of directories and sub-directories in the current directory.<br>
 13. **12-newest_files** displays the 10 newest files in the current directory.<br>
+14. **13-unique** takes a list of words as input and prints only words that appear once.<br>
 
