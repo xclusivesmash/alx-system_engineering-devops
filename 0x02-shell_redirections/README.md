@@ -9,4 +9,5 @@
 7. **6-third_line** displays the third line of the file "iacta".<br>
 8. **7-file** creates a filename with special characters.<br>
 9. **8-cwd_state** writes into the file "ls_cwd_content" the results of the command "ls -al".<br>
+10. **9-duplicate_last_line** duplicates the last line of the file "iacta".<br>
 
