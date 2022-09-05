@@ -4,3 +4,4 @@
 2. **1-confused_smiley** displays a confused smiley to the console.<br>
 3. **2-hellofile** displays the contents of "/etc/passwd".<br>
 4. **3-twofiles** display the content of "/ect/passwd" and "/etc/hosts".<br>
+5. **4-lastlines** displays the last 10 lines "/etc/passwd".<br>
