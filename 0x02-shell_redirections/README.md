@@ -2,3 +2,5 @@
 
 1. **0-hello_world** prints "hello, World", followed by newline to the standard output.<br>
 2. **1-confused_smiley** displays a confused smiley to the console.<br>
+3. **2-hellofile** displays the contents of "/etc/passwd".<br>
+4. **3-twofiles** display the content of "/ect/passwd" and "/etc/hosts".<br>
