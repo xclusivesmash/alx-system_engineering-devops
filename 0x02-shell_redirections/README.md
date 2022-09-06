@@ -21,4 +21,5 @@
 19. **18-lettersonly** display all lines of the file "/etc/ssh/sshd_config" starting with a letter.<br>
 20. **19-A_Z** replace all characters "A" and "c" from input to "Z" and "e", respectively.<br>
 21. **20-hiago** removes all letters "c" and "C" from input.<br>
+22. **21-reverse** writes a script that reverses its input.<br>
 
