@@ -19,4 +19,5 @@
 17. **16-whatsnext** display the lines containing the pattern "root" and 3 lines after them in the file "/etc/passwd".<br>
 18. **17-hidethisword** display all the lines in the file "/etc/passwd" that do not contain the pattern "bin".<br>
 19. **18-lettersonly** display all lines of the file "/etc/ssh/sshd_config" starting with a letter.<br>
+20. **19-A_Z** replace all characters "A" and "c" from input to "Z" and "e", respectively.<br>
 
