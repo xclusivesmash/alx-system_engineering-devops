@@ -1,5 +1,22 @@
-## SCRIPT'S DESCRIPTION
+# Shell - init files, variables, and expansions
 
+### Description
+This repository was created for primarily learning fundamental shell basics via the alx software engineering programme.
+
+### Requirements
+* Languages: Bash
+* OS: Ubuntu 20.04 LTS
+* Editors: ```vi```, ```vim```, or ```emacs```
+
+### Concepts
+* Expansions
+* Shell arithmetic
+* Variables
+* Shell initialization files
+* The alias command
+* Technical writing
+
+### Script description
 1. **0-alias** creates an alias named "ls".<br>
 2. **1-hello_you** prints "hello user" where user is the current Linux user.<br>
 3. **2-path** adds /action to the PATH. /action is the last directory the shell looks into when looking for a program.<br>
@@ -18,3 +35,9 @@
 16. **101-rot13** encodes and decodes text using rot13 encryption.<br>
 17. **102-odd** prints every other line from the input, starting with the first line.<br>
 18. **103-water_and_stir** adds the 2 numbers stored in the environment variables WATER and STIR and prints the result.<br>
+
+### Authors
+* Siphamandla Matshiane
+
+### License
+* The Holberton School/ALX SE Programme
