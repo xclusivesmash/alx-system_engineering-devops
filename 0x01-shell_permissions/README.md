@@ -1,4 +1,23 @@
-## SCRIPT DESCRIPTION
+# Shell - Permissions
+
+### Description
+This repository was created for primarily learning shell permissions through the alx software engineering programme.
+
+### Requirements
+* Languages: Bash
+* OS: Ubuntu 20.04 LTS
+* Editors: ```vi```, ```vim```, or ```emacs```.
+
+### Concepts
+* What do the commands ```chmod```, ```sudo```, ```su```, ```chown```, ```chgrp``` do.
+* Linux file permissions
+* How to represent each of the three sets of permissions (owner, group, other) as a single digit.
+* how to change permissions, owner and group of a file.
+* Why can't a normal user ```chown``` a file.
+* How to run commands wit root priviledges.
+* How to change user ID or become superuser.
+
+### SCRIPT DESCRIPTION
 
 1. **0-iam_betty** switches the current user to ther user betty.<br>
 2. **1-who_am_i** prints the effective username of the current user.<br>
@@ -19,3 +38,8 @@
 17. **102-if_only** changes the owner of the file *hello* to *betty* only if it is owned by the user "guillaume".<br>
 18. **103-Star_Wars** simply plays the StarWarsa IV episode in the terminal.<br>
 
+### Authors
+* Siphamandla Matshiane
+
+### License
+* The Holberton School/ALX SE Programme
