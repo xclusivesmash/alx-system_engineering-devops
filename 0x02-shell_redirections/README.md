@@ -1,5 +1,18 @@
-## SCRIPT DESCRIPTION
+# Shell - I/O, redirections, and filters
 
+### Description
+This repository was created for primarily learning shell fundamentals via alx software engineering programme. 
+
+### Requirements
+* Languages: Bash
+* OS: Ubuntu 20.04 LTS
+* Editors: ```vi```, ```vim```, ```emacs```
+
+### Concepts
+* Shell, I/O redirections
+* Special characters
+
+### Script description
 1. **0-hello_world** prints "hello, World", followed by newline to the standard output.<br>
 2. **1-confused_smiley** displays a confused smiley to the console.<br>
 3. **2-hellofile** displays the contents of "/etc/passwd".<br>
@@ -25,3 +38,9 @@
 23. **22-users_and_homes** displays all users and their home directories, sorted by users.<br>
 24. **100-empty_casks** finds all empty files and directories in the current directory and all sub-folders.<br>
 25. **101-gifs** list all files with a ".gif" extension in the current directory and all sub-directories.<br>
+
+### Authors
+* Siphamandla Matshiane
+
+### License
+* The Holberton School/ALX SE Programme
