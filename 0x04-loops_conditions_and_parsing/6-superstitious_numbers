@@ -10,16 +10,11 @@ COUNT=1
 while [ $COUNT -le 20 ]
 do
 	echo "$COUNT"
-	if [ $COUNT -eq 4 ]
-	then
-		echo "bad luck from China"
-	elif [ $COUNT -eq 9 ]
-	then
-		echo "bad luck from Japan"
-	elif [ $COUNT -eq 17 ]
-	then
-		echo "bad luck from Italy"
-	fi
+	case $COUNT in
+		4) echo "bad luck from China" ;;
+		9) echo "bad luck from Japan" ;;
+		17) echo "bad luck from Italy" ;;
+	esac
 	COUNT=$(( COUNT + 1))
 done
 # END #
