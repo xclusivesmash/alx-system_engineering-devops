@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Purpose: Displays PID of processes containing the word bash.
+#Version: 1.0
+#Created date:  Tue Oct 3 01:02:15 SAST 2023
+#Modified date: None.
+#Author: Siphamandla Matshiane
+
+# START #
+pgrep -l bash
+# END #
