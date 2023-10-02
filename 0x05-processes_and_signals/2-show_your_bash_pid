@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #Purpose: Filtering out certain processes.
+# shellcheck disable=SC2009
 #Version: 1.0
 #Created date:  Tue Oct 3 00:57:01 SAST 2023
 #Modified date: None
