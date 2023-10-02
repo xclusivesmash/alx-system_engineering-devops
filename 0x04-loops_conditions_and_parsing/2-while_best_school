@@ -7,9 +7,9 @@
 
 # START #
 COUNT=1
-while (( COUNT <=10 ))
+while [ $COUNT -le 10 ]
 do
 	echo "Best School"
-	(( COUNT++ ))
+	COUNT=$(( COUNT + 1 ))
 done
 # END #
