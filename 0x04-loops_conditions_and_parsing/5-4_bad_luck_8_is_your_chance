@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#Purpose: Conditional printing.
+#Version: 1.0
+#Created date:  Mon Oct 2 16:45:07 SAST 2023
+#Modified date: None.
+#Author: Siphamandla Matshiane
+
+# START #
+COUNT=1
+while [ $COUNT -le 10 ]
+do
+	if [ $COUNT -eq 4 ]
+	then
+		echo "bad luck"
+	elif [ $COUNT -eq 8 ]
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	COUNT=$(( COUNT + 1 ))
+done
+# END #
