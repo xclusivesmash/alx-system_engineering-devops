@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Purpose: Group by IP and HTTPS status codes.
+#Version: 1.0
+#Created date:  Mon Oct 2 20:39:06 SAST 2023
+#Modified date: None
+#Author: Siphamandla Matshiane
+
+# START #
+FILE="apache-access.log"
+awk '{print $1, $9}' $FILE | sort | uniq -c | sort -nr
+# END #
