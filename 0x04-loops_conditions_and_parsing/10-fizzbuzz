@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#Purpose: Fizz Buzz example.
+#Version: 1.0
+#Created date:  Mon Oct 2 17:45:15 SAST 2023
+#Modified date: None
+#Author: Siphamandla Matshiane
+
+# START #
+NUMBER=1
+while [ $NUMBER -le 100 ]
+do
+	if [ $((NUMBER % 3)) -eq 0 ] && [ $((NUMBER % 5)) -eq 0 ]
+	then
+		echo "FizzBuzz"
+	elif [ $((NUMBER % 5)) -eq 0 ]
+	then
+		echo "Buzz"
+	elif [ $((NUMBER % 3)) -eq 0 ]
+	then
+		echo "Fizz"
+	else
+		echo "$NUMBER"
+	fi
+	NUMBER=$(( NUMBER + 1 ))
+done
+# END #
