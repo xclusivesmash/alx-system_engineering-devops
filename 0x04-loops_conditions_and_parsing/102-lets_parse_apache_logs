@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Purpose: Parsing log in files.
+#Version: 1.0
+#Created date:  Mon Oct 2 19:51:46 SAST 2023
+#Modified date: None
+#Author: Siphamandla Matshiane
+
+# START #
+FILE="apache-access.log"
+awk '{print $1, $9}' $FILE
+# END #
