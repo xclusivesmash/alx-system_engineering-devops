@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#Purpose: 
+#Version: 1.0
+#Created date:  Tue Oct 3 01:39:04 SAST 2023
+#Modified date: None.
+#Author: Siphamandla Matshiane
+
+# START #
+finisher() {
+  rm /var/run/holbertonscript.pid
+  exit
+}
+
+echo "$$" > /var/run/holbertonscript.pid
+trap "echo \"Y U no love me?!\"" SIGINT
+trap "echo \"I hate the kill command\" && finisher" SIGTERM
+trap "finisher" SIGQUIT
+
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
+# END #
