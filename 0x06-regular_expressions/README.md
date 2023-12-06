@@ -10,7 +10,7 @@
 - All files must start with `#!/usr/bin/env ruby`
 
 ## Author
-- Siphamandla Matshiane, [![Twitter](https://icons8.com/icon/5MQ0gPAYYx7a/twitter)](https://twitter.com/sbumatshiane916)
+- Siphamandla Matshiane, [![Twitter](http://i.imgur.com/wWzX9uB.png)](https://twitter.com/sbumatshiane916)
 
 ## LICENSE
 - [ALX Software Engineering programme](https://www.alxafrica.com/software-engineering-plus/)
