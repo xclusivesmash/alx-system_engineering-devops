@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Displays listening network connections
+
+netstat -l -p
