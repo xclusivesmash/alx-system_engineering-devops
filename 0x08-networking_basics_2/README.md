@@ -22,8 +22,10 @@
     * `facebook.com` resolves to `8.8.8.8`
     * The checker is running on Docker, so make sure to read [this](https://intranet.alxswe.com/rltoken/XSXhQPoDu3QecXs3j9XgPQ)
 <br>
+
 1. **1-show_attached_IPs** - Bash script that displays all active IPv4 IPs on the machine it's executed on.
 <br>
+
 2. **100-port_listening_on_localhost** - Bash script that listens on port `98` on `localhost`.
 <br>
 
