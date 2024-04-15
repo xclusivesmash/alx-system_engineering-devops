@@ -1,4 +1,4 @@
-# CMD Challenge
+# CMD (Command Line) Challenge
 
 ## Background Context
 > [CMD CHALLENGE](https://intranet.alxswe.com/rltoken/a83_NOBEtXgFr1Yqej0HYA) is a pretty cool game challenging you on Bash skills. Everything is done via the command line and the questions are becoming increasingly complicated. It’s a good training to improve your command line skills!
@@ -17,7 +17,7 @@
 <br>
 
 ## Author
-Siphamandla Matshiane, [![Twitter](http://i.imgur.com/wWzX9uB.png)](https://twitter.com/sbumatshiane916) 
+Siphamandla Matshiane, ![X (formerly Twitter) URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2Fsbumatshiane916) 
 
 ## LICENSE
 [ALX Software Engineering](https://www.alxafrica.com/software-engineering/)
