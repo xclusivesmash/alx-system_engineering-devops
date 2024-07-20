@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# configure ssh to not use password upon
+# loggin in on any system.
+Host *
+    SendEnv LANG LC_*
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
