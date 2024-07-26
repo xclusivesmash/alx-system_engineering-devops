@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# configure Nginx on a web server
+sudo mkdir -p /var/www/html
+
+
+ADD301_REDIRECT="\\\tlocation /redirect_me {\n\t\t return 301 https://google.com;\n\t}\n"
+ADD404_NOTFOUND="error_page 404 /404.html;\n\\tlocation = /404.html {\n\t\t root /var/www/html;\n\t\tinternal;\n\t}\n"
+PATTERN="#error_page 404 /404.html;"
+ADD_HEADER="\\\tadd_header X-Served-By $HOSTNAME;"
+
+sudo apt-get update
+# installing the nginx web server
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo service nginx start
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+sudo sed -i "s@$PATTERN@$ADD404_NOTFOUND@" /etc/nginx/sites-available/default
+sudo sed -i "27i $ADD_HEADER" /etc/nginx/sites-available/default
+
+sudo service nginx restart
