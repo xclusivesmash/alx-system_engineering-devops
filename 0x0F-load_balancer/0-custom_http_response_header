@@ -1,23 +1,38 @@
 #!/usr/bin/env bash
-# configure Nginx on a web server
-sudo mkdir -p /var/www/html
+# configure Nginx on a web server: web-02
 
-
-ADD301_REDIRECT="\\\tlocation /redirect_me {\n\t\t return 301 https://google.com;\n\t}\n"
-ADD404_NOTFOUND="error_page 404 /404.html;\n\\tlocation = /404.html {\n\t\t root /var/www/html;\n\t\tinternal;\n\t}\n"
-PATTERN="#error_page 404 /404.html;"
-ADD_HEADER="\\\tadd_header X-Served-By $HOSTNAME;"
-
-sudo apt-get update
-# installing the nginx web server
+# installing the web server Nginx
+sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-sudo service nginx start
 
-echo "Hello World!" | sudo tee /var/www/html/index.html
-sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-sudo sed -i "s@$PATTERN@$ADD404_NOTFOUND@" /etc/nginx/sites-available/default
-sudo sed -i "27i $ADD_HEADER" /etc/nginx/sites-available/default
+sudo mkdir -p /var/www/html
+sudo chown -R $USER:$USER /var/www
+touch /var/www/html/index.html
+# put some text in the index files
+echo "Hello World!" > /var/www/html/index.html
+touch /var/www/html/404.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+
+# change permision for default file
+sudo chmod 777 /etc/nginx/sites-available/default
+
+# configure the server: web-02
+print %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    add_header X-Served-By $HOSTNAME
+
+    root /var/www/html;
+    index index.com index.htm;
+    location /redirect_me {
+        return 301 http://www.google.com/;
+    }
+
+    error_page 404 /404.html;
+    location /404 {
+        root /var/www/html;
+        internal;
+    }
+}" > /etc/nginx/sites-available/default
 
 sudo service nginx restart
