@@ -1,38 +1,54 @@
 #!/usr/bin/env bash
-# configure Nginx on a web server: web-02
+# installing nginx on web-01
 
-# installing the web server Nginx
+# update the advanced packaging tool
 sudo apt-get -y update
-sudo apt-get -y install nginx
 
-sudo mkdir -p /var/www/html
-sudo chown -R $USER:$USER /var/www
-touch /var/www/html/index.html
-# put some text in the index files
+# upgrade the advanced packaging tool
+sudo apt-get upgrade -y
+
+# install nginx on server
+sudo apt-get install nginx -y
+
+# start nginx server
+sudo service nginx start
+
+# configure firewall to allow traffic through port 80
+sudo ufw allow 'Nginx HTTP'
+
+# give user full ownership to website file
+sudo chown -R $USER:$USER /var/www/html
+sudo chmod -R 755 /var/www
+
+# put contents in the index file
 echo "Hello World!" > /var/www/html/index.html
-touch /var/www/html/404.html
+
+# setting up 404
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 
-# change permision for default file
-sudo chmod 777 /etc/nginx/sites-available/default
+# server configuration
+server_config=\
+"server {
+		listen 80 default_server;
+		listen [::]:80 default_server;
+		root /var/www/html;
+		index index.html index.htm index.nginx-debian.html
+		server_name_;
+		add_header X-Served-By \$hostname;
 
-# configure the server: web-02
-print %s "server {
-    listen 80;
-    listen [::]:80 default_server;
-    add_header X-Served-By $HOSTNAME
+		location / {
+			try_files \$uri \$uri/ =404;
+		}
+		if (\$request_filename ~ redirect_me){
+			rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+		}
+		error_page 404 /404.html;
+		location = /404.html {
+			internal;
+		}
+}"
 
-    root /var/www/html;
-    index index.com index.htm;
-    location /redirect_me {
-        return 301 http://www.google.com/;
-    }
+echo "$server_config" | sudo dd status=none of=/etc/nginx/sites-enabled/default
 
-    error_page 404 /404.html;
-    location /404 {
-        root /var/www/html;
-        internal;
-    }
-}" > /etc/nginx/sites-available/default
-
+# restart nginx
 sudo service nginx restart
