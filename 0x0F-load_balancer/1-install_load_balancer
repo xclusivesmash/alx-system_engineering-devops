@@ -1,20 +1,35 @@
 #!/usr/bin/env bash
-# Installs and configures load balancer
+# installing haproxy (load balancer) on lb-01
 
+# update the advanced packaging tool
 sudo apt-get -y update
-sudo apt-get -y upgrade
-apt-get -y install haproxy
+
+# upgrade the advanced packaging tool
+sudo apt-get upgrade -y
+
+# install haproxy on server
+sudo apt-get install haproxy=2.9.\* -y
+
+# start haproxy service
+sudo service haproxy start
+
+# configure haproxy
 server_config=\
 "
-frontend  siphamandla-frontend
+    frontend http
         bind *:80
         mode http
-        default_backend siphamandla-backend
-backend siphamandla-backend
+        default_backend http-backend
+
+    backend http-backend
         balance roundrobin
         server 102332-web-01 100.26.20.241:80 check
         server 102332-web-02 54.144.240.136:80 check
 "
-echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
-echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+echo "$server_config" | sudo dd status=none of=/etc/haproxy/haproxy.cfg
+
+# enable haproxy to be started by init file
+echo "ENABLED=1" | sudo dd status=none of=/etc/default/haproxy
+
+# restart haproxy
 sudo service haproxy restart
