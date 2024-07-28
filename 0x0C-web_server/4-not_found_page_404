@@ -1,16 +1,34 @@
 #!/usr/bin/env bash
-ADD301_REDIRECT="\\\tlocation /redirect_me {\n\t\t return 301 https://google.com;\n\t}\n"
-ADD404_NOTFOUND="error_page 404 /custom_404.html;\n\\tlocation = /custom_404.html {\n\t\t root /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
-PATTERN="#error_page 404 /404.html;"
+# installing nginx on web-01
 
+# update the advanced packaging tool
 sudo apt-get -y update
-sudo apt-get -y install nginx
+
+# upgrade the advanced packaging tool
+sudo apt-get upgrade -y
+
+# install nginx on server
+sudo apt-get install nginx -y
+
+# start nginx server
 sudo service nginx start
 
-echo "Hello World!" | sudo tee /var/www/html/index.html
-sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default #add at line 30
+# configure firewall to allow traffic through port 80
+sudo ufw allow 'Nginx HTTP'
 
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-sudo sed -i "s@$PATTERN@$ADD404_NOTFOUND@" /etc/nginx/sites-available/default #uncomment and replace
+# give user full ownership to website file
+sudo chown -R $USER:$USER /var/www/html
+sudo chmod -R 755 /var/www
 
+# put contents in the index file
+echo "Hello World!" > /var/www/html/index.html
+
+# setting up a redirect me configuration
+sudo sed -i '24i\       rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+# setting up 404
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+sudo sed -i '25i\	error_page 404 /404.html;' /etc/nginx/sites-available/default
+
+# restart nginx
 sudo service nginx restart
