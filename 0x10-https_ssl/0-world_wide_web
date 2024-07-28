@@ -15,4 +15,4 @@ else
     print_information "web-01.$1" "web-01"
     print_information "web-02.$1" "web-02"
 fi
-shellcheck disable=SC2086
+#shellcheck disable=SC2086
