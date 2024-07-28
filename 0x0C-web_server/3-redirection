@@ -1,9 +1,30 @@
 #!/usr/bin/env bash
-ADD301_REDIRECT="\\\tlocation /redirect_me {\n\t\t return 301 https://google.com;\n\t}\n"
+# installing nginx on web-01
 
+# update the advanced packaging tool
 sudo apt-get -y update
-sudo apt-get -y install nginx
-#sudo service nginx start
-echo "Hello World!" | sudo tee /var/www/html/index.html
-sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default
+
+# upgrade the advanced packaging tool
+sudo apt-get upgrade -y
+
+# install nginx on server
+sudo apt-get install nginx -y
+
+# start nginx server
 sudo service nginx start
+
+# configure firewall to allow traffic through port 80
+sudo ufw allow 'Nginx HTTP'
+
+# give user full ownership to website file
+sudo chown -R $USER:$USER /var/www/html
+sudo chmod -R 755 /var/www
+
+# put contents in the index file
+echo "Hello World!" > /var/www/html/index.html
+
+# setting up a redirect me configuration
+sudo sed -i '24i\       rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+# restart nginx
+sudo service nginx restart
