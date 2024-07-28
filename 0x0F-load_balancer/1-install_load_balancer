@@ -10,18 +10,22 @@ sudo apt-get upgrade -y
 # install haproxy on server
 sudo apt-get install haproxy=2.9.\* -y
 
-# start haproxy service
-sudo service haproxy start
-
 # configure haproxy
 server_config=\
 "
-    frontend http
+    defaults
+        mode http
+        timeout client 15s
+        timeout connect 10s
+        timeout server 15s
+        timeout http-request 10s
+
+    frontend mashego-frontend
         bind *:80
         mode http
-        default_backend http-backend
+        default_backend mashego-backend
 
-    backend http-backend
+    backend mashego-backend
         balance roundrobin
         server 102332-web-01 100.26.20.241:80 check
         server 102332-web-02 54.144.240.136:80 check
