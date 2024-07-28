@@ -48,6 +48,8 @@ server_config=\
 		}
 }"
 
+# ignore shellcheck output
+shellcheck disable=SC2154
 echo "$server_config" | sudo dd status=none of=/etc/nginx/sites-enabled/default
 
 # restart nginx
