@@ -1,17 +1,23 @@
 # update system
-sudo apt-get update
+sudo apt-get -y update
 
 # install firewall
 sudo apt-get install ufw -y
+
+# disable firewall
+sudo ufw disable
 
 # allow outgoing traffic and not incoming
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
+# stop firewall
+sudo systemctl stop ufw
+
 # ports to be permitted
-sudo ufw allow 22
-sudo ufw allow 80
-sudo ufw allow 443
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
 
 # enable firewall
 sudo ufw enable
