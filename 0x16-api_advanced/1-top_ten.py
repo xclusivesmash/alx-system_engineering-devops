@@ -10,12 +10,16 @@ def top_ten(subreddit):
     """return top ten titles for a given subreddit
         return None if invalid subreddit given
     """
-    headers = requests.utils.default_headers()
-    headers.update({'User-Agent': 'My User Agent 1.0'})
-    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
-    rq = requests.get(url, headers=headers).json()
-    top_ten = rq.get('data', {}).get('children', [])
-    if not top_ten:
+    user = {'User-Agent': 'Lizzie'}
+    url = requests.get('https://www.reddit.com/r/{}/hot/.json?limit=10'
+                       .format(subreddit), headers=user).json()
+    # implement the try-catch method.
+    try:
+        for post in url.get('data').get('children'):
+            print(post.get('data').get('title'))
+    except Exception:
         print(None)
-    for t in top_ten:
-        print(t.get('data').get('title'))
+
+
+if __name__ == "__main__":
+    top_ten(argv[1])
