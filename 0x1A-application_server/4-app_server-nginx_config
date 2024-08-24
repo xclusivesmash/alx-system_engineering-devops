@@ -1,6 +1,6 @@
 server {
         listen 80;
-        location /hbnb_static { alias /data/web_static/current/;};
+        location /hbnb_static { alias /data/web_static/current/;}
         listen [::]:80 default_server;
         root /etc/nginx/html;
         index index.html index.htm;
